@@ -2,11 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Virtual Pet</title>
   </head>
   <body>
     <div class="container">
-
+      <div class="start">
+        <h1>Adopt a virtual pet!</h1>
+        <form class="petForm" action="index.html" method="post">
+          <div class="form-group">
+            <label for="type">What would you like to adopt?</label>
+            <select class="type" name="type">
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+              <option value="turtle">Turtle</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="type">What is your new pet's name?</label>
+            <input id="name" type="text" name="name">
+          </div>
+          <button type="submit" name="button">Adopt!</button>
+        </form>
+      </div>
+      <div class="display">
+        <h2 class="name"></h2>
+        <p class="stats">Hunger: <span id="hunger"></span> Sleep: <span id="sleep"></span> Play: <span id="play"></span> Health: <span id="health"></span></p>
+        <div class="pet">
+          <p class="poop"></p>
+        </div>
+        <div class="buttons">
+          <button class="care" type="button" name="button" value="hunger">Feed</button>
+          <button class="care" type="button" name="button" value="sleep">Put to bed</button>
+          <button class="care" type="button" name="button" value="play">Play</button>
+          <button class="care" type="button" name="button" value="health">Clean up</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
