@@ -8,7 +8,8 @@ $(function() {
   $(".petForm").submit(function(event) {
     event.preventDefault();
     let pet = new Pet($("#name").val());
-    let message = pet.setStats();
+    pet.setStats();
+    setInterval(console.log(type), 11000)
     $(".start").hide();
     $(".display").show();
     $(".name").text(pet.name);
@@ -22,16 +23,30 @@ $(function() {
       $(".poop").append("poop image");
       pet.health -= 3;
       if(pet.health <= 0) {
+        pet.death = "health";
+      }
+      if (pet.didPetDie()) {
         clearInterval(healthInterval);
-        message = `${pet.name} has died of a poop infection! :'(`;
       }
     }, 7000);
     setInterval(function() {
       if(pet.didPetDie()) {
         $(".pet").text("dead image");
-        $(".name").text(message);
+        // $(".name").text(message);
         $(".buttons").hide();
         $(".stats").hide();
+        $(".poop").hide();
+        if(pet.death === "hunger") {
+          $(".name").text( `${pet.name} has died of hunger! :'(`);
+        }else if (pet.death === "sleep") {
+          $(".name").text( `${pet.name} has died of sleep deprivation :'(`);
+        }else if (pet.death === "play") {
+          $(".name").text( `${pet.name} has died of boredom :'(`);
+        }else if (pet.death === "health") {
+          $(".name").text( `${pet.name} has died of a poop infection :'(`);
+        }else {
+          console.log("You shouldn't see this");
+        }
       }
     }, 10);
 
@@ -46,6 +61,8 @@ $(function() {
         $(".pet").text("playing gif");
       }else if (stat === "health") {
         $(".poop").text("");
+      }else {
+        console.log("You shouldn't see this");
       }
     });
   });

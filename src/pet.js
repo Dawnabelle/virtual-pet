@@ -5,31 +5,40 @@ class Pet {
     this.sleep = 10;
     this.play = 10;
     this.health = 10;
+    this.death;
   }
 
   setStats() {
     const hungerInterval = setInterval(() => {
       this.hunger--;
-      if(this.didPetDie()) {
+      if (this.didPetDie()) {
         clearInterval(hungerInterval);
-        return `${this.name} has died of hunger! :'(`;
+      }
+      if(this.hunger <= 0) {
+        this.death = "hunger";
+        return "hunger";
       }
     }, 4500);
     const sleepInterval = setInterval(() => {
-      this.sleep--;
-      if(this.didPetDie()) {
+      if (this.didPetDie()) {
         clearInterval(sleepInterval);
-        return `${this.name} has died of sleep deprivation! :'(`;
+      }
+      this.sleep--;
+      if(this.sleep <= 0) {
+        this.death = "sleep";
+        return "sleep";
       }
     }, 9000);
     const playInterval = setInterval(() => {
-      this.play--;
-      if(this.didPetDie()) {
+      if (this.didPetDie()) {
         clearInterval(playInterval);
-        return `${this.name} has died of boredom! :'(`;
       }
-    }, 3000);
-
+      this.play--;
+      if(this.play <= 0) {
+        this.death = "play";
+        return "play";
+      }
+    }, 1000);
   }
 
   addStats(stat) {
