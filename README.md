@@ -32,7 +32,7 @@ _There are no known bugs at this time_
 
 ## Support and contact details
 
-_If you have any questions comments or concerns contact Kristen at peanutster@gmail.com_
+_If you have any questions comments or concerns contact Kristen at peanutster@gmail.com or Dawn @dawnrparty on _:hatched_chick:
 
 ## Technologies Used
 

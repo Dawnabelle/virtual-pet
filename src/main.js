@@ -32,7 +32,6 @@ $(function() {
     setInterval(function() {
       if(pet.didPetDie()) {
         $(".pet").text("dead image");
-        // $(".name").text(message);
         $(".buttons").hide();
         $(".stats").hide();
         $(".poop").hide();
