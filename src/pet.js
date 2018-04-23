@@ -6,6 +6,11 @@ class Pet {
     this.play = 10;
     this.health = 10;
     this.death;
+    this.eating;
+    this.sleeping;
+    this.playing;
+    this.normal;
+    this.pooping;
   }
 
   setStats() {
@@ -15,8 +20,7 @@ class Pet {
         clearInterval(hungerInterval);
       }
       if(this.hunger <= 0) {
-        this.death = "hunger";
-        return "hunger";
+        this.death = `${this.name} has died of hunger! :'(`;
       }
     }, 4500);
     const sleepInterval = setInterval(() => {
@@ -25,8 +29,7 @@ class Pet {
       }
       this.sleep--;
       if(this.sleep <= 0) {
-        this.death = "sleep";
-        return "sleep";
+        this.death = `${this.name} has died of sleep deprivation :'(`;
       }
     }, 9000);
     const playInterval = setInterval(() => {
@@ -35,10 +38,9 @@ class Pet {
       }
       this.play--;
       if(this.play <= 0) {
-        this.death = "play";
-        return "play";
+        this.death = `${this.name} has died of boredom :'(`;
       }
-    }, 1000);
+    }, 3000);
   }
 
   addStats(stat) {
